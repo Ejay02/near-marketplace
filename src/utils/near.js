@@ -3,7 +3,7 @@ import { connect, Contract, keyStores, WalletConnection } from "near-api-js";
 import { formatNearAmount } from "near-api-js/lib/utils/format";
 
 const nearEnv = environment("testnet");
-//...
+
 export async function initializeContract() {
   const near = await connect(
     Object.assign(
@@ -17,12 +17,13 @@ export async function initializeContract() {
     window.walletConnection.account(),
     nearEnv.contractName,
     {
+      // List here all view methods
       viewMethods: ["getProduct", "getProducts"],
+      // List call methods that change state
       changeMethods: ["buyProduct", "setProduct"],
     }
   );
 }
-//...
 
 export async function accountBalance() {
   return formatNearAmount(

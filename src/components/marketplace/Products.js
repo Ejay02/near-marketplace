@@ -4,6 +4,7 @@ import AddProduct from "./AddProduct";
 import Product from "./Product";
 import Loader from "../utils/Loader";
 import { Row } from "react-bootstrap";
+
 import { NotificationSuccess, NotificationError } from "../utils/Notifications";
 import {
   getProducts as getProductList,
@@ -11,11 +12,11 @@ import {
   createProduct,
 } from "../../utils/marketplace";
 
-//...Products
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // function to get the list of products
   const getProducts = useCallback(async () => {
     try {
       setLoading(true);
@@ -27,7 +28,6 @@ const Products = () => {
     }
   });
 
-  //...Add Product
   const addProduct = async (data) => {
     try {
       setLoading(true);
@@ -43,7 +43,7 @@ const Products = () => {
     }
   };
 
-  //...buy
+  //  function to initiate transaction
   const buy = async (id, price) => {
     try {
       await buyProduct({
@@ -62,7 +62,6 @@ const Products = () => {
     getProducts();
   }, []);
 
-  //...Return
   return (
     <>
       {!loading ? (

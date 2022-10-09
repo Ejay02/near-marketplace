@@ -15,8 +15,6 @@ const AddProduct = ({ save }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  //...
-
   return (
     <>
       <Button
@@ -25,8 +23,7 @@ const AddProduct = ({ save }) => {
         className="rounded-pill px-0"
         style={{ width: "38px" }}
       >
-        {/* Changed from class to className */}
-        <i className="bi bi-plus"></i>
+        <i class="bi bi-plus"></i>
       </Button>
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
